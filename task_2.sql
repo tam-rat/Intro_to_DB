@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS Order_Details (
     order_detail_id INT NOT NULL AUTO_INCREMENT,
     order_id INT NOT NULL,
     book_id INT NOT NULL,
-    quantity INT NOT NULL DEFAULT 1,
+    quantity DOUBLE NOT NULL DEFAULT 1,  -- <-- Fixed to DOUBLE
     price DECIMAL(10,2) NOT NULL,
     PRIMARY KEY (order_detail_id),
     FOREIGN KEY (order_id) REFERENCES Orders(order_id)
