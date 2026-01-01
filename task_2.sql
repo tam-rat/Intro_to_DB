@@ -1,10 +1,13 @@
+-- task_2.sql
+-- Script to create all tables for alx_book_store
 
+-- 1. Create the database
 CREATE DATABASE IF NOT EXISTS alx_book_store;
 
-
+-- 2. Use the database
 USE alx_book_store;
 
-
+-- 3. Create Authors table
 CREATE TABLE IF NOT EXISTS Authors (
     author_id INT NOT NULL AUTO_INCREMENT,
     author_name VARCHAR(100) NOT NULL,
@@ -12,10 +15,10 @@ CREATE TABLE IF NOT EXISTS Authors (
     PRIMARY KEY (author_id)
 );
 
-
+-- 4. Create Books table
 CREATE TABLE IF NOT EXISTS Books (
     book_id INT NOT NULL AUTO_INCREMENT,
-    title VARCHAR(130) NOT NULL,
+    book_title VARCHAR(130) NOT NULL,
     author_id INT NOT NULL,
     price DECIMAL(10,2) NOT NULL,
     publication_date DATE,
@@ -25,16 +28,16 @@ CREATE TABLE IF NOT EXISTS Books (
         ON UPDATE CASCADE
 );
 
-
+-- 5. Create Customers table
 CREATE TABLE IF NOT EXISTS Customers (
     customer_id INT NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    phone VARCHAR(20),
+    customer_name VARCHAR(215) NOT NULL,
+    email VARCHAR(215) NOT NULL,
+    address TEXT,
     PRIMARY KEY (customer_id)
 );
 
+-- 6. Create Orders table
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT NOT NULL AUTO_INCREMENT,
     customer_id INT NOT NULL,
@@ -46,7 +49,7 @@ CREATE TABLE IF NOT EXISTS Orders (
         ON UPDATE CASCADE
 );
 
-
+-- 7. Create Order_Details table
 CREATE TABLE IF NOT EXISTS Order_Details (
     order_detail_id INT NOT NULL AUTO_INCREMENT,
     order_id INT NOT NULL,
