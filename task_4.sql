@@ -1,6 +1,13 @@
 -- task_4.sql
--- Display the full description of the books table
+-- Display full description of the books table using INFORMATION_SCHEMA
 
 USE alx_book_store;
 
-SHOW CREATE TABLE books;
+SELECT 
+    COLUMN_NAME,
+    COLUMN_TYPE
+FROM 
+    INFORMATION_SCHEMA.COLUMNS
+WHERE 
+    TABLE_SCHEMA = 'alx_book_store'
+    AND TABLE_NAME = 'Books';
